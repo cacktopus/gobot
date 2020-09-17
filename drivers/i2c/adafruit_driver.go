@@ -201,14 +201,6 @@ func (a *AdafruitMotorHatDriver) startDriver(connection Connection) (err error) 
 func (a *AdafruitMotorHatDriver) Start() (err error) {
 	bus := a.GetBusOrDefault(a.connector.GetDefaultBus())
 
-	if a.servoHatConnection, err = a.connector.GetConnection(servoHatAddress, bus); err != nil {
-		return
-	}
-
-	if err = a.startDriver(a.servoHatConnection); err != nil {
-		return
-	}
-
 	if a.motorHatConnection, err = a.connector.GetConnection(motorHatAddress, bus); err != nil {
 		return
 	}
